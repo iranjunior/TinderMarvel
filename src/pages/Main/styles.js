@@ -80,7 +80,7 @@ export const Description = Styled.Text`
 
 `;
 export const Clicked = Styled.TouchableOpacity`
-    opacity: 0;
-    position: relative;
-    z-index: 30;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
 `;

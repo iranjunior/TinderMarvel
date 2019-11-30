@@ -10,3 +10,6 @@ export const PanelBackground = Styled.View`
 export const Title = Styled.Text`
     font-size: 30px;
 `;
+export const Clicked = Styled.TouchableOpacity`
+    background-color: transparent;
+`;
