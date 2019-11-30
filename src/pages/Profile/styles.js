@@ -23,21 +23,36 @@ export const ViewProfile = Styled.View`
     align-items: center;
     width: 100%;
     background-color: 'rgb(255,255,255)';
-
     ${props =>
       props.type === 'Image' &&
       css`
-        height: 50%;
-        border-bottom-left-radius: ${Math.floor(size.height * 0.25)};
-        border-bottom-right-radius: ${Math.floor(size.height * 0.25)};
-        elevation: 10;
+        height: 45%;
+        border-bottom-right-radius: ${Math.floor(size.height / 0.225)};
+        border-bottom-left-radius: ${Math.floor(size.height / 0.225)};
       `}
+      ${props =>
+        props.type === 'Icons' &&
+        css`
+          height: 30%;
+          overflow: hidden;
+          justify-content: center;
+          align-items: flex-start;
+          flex-direction: row;
+          border-bottom-right-radius: ${Math.floor(size.height / 2)};
+          border-bottom-left-radius: ${Math.floor(size.height / 2)};
+          transform: scaleX(2);
+          border-color: #babaca;
+          border-width: 1;
+          border-top-width: 0;
+        `}
     ${props =>
       props.type === 'Footer' &&
       css`
-        height: 50%;
+        height: 25%;
         flex-direction: row;
         background-color: 'rgb(255,255,255)';
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
       `}
 `;
 export const ImageProfile = Styled.Image`
@@ -78,4 +93,7 @@ export const NumberHeros = Styled.Text`
 export const LabelFrame = Styled.Text`
     font-size: 20;
     font-weight: 300;
+`;
+export const Clicked = Styled.TouchableOpacity`
+    background-color: transparent;
 `;

@@ -6,3 +6,16 @@ export const ActiveTabIcon = Styled.View`
   height: '30px';
   border-radius: 15;
 `;
+export const ViewIcon = Styled.View`
+position: relative;
+z-index: 30;
+transform: scaleX(0.5);
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 20;
+`;
+export const Label = Styled.Text`
+  font-size: 16;
+  color: #aaa;
+`;

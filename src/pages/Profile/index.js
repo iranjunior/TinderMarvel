@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {StatusBar} from 'react-native';
+import {SettingIcon} from '~/components/icons/profileIcons';
 
 import {
   PanelBackground,
@@ -11,6 +12,7 @@ import {
   LabelFrame,
   Heros,
   NumberHeros,
+  Clicked,
 } from './styles';
 
 const Main = ({navigation}) => (
@@ -20,6 +22,17 @@ const Main = ({navigation}) => (
       <ImageProfile source={require('~/public/imagens/150.jpg')} />
       <Information>Iran da Silva Pereira Junior</Information>
       <Information>Recife, Brazil</Information>
+    </ViewProfile>
+    <ViewProfile type="Icons">
+      <Clicked onPress={() => navigation.navigate('EditProfile')}>
+        <SettingIcon />
+      </Clicked>
+      <Clicked onPress={() => navigation.navigate('EditProfile')}>
+        <SettingIcon />
+      </Clicked>
+      <Clicked onPress={() => navigation.navigate('EditProfile')}>
+        <SettingIcon />
+      </Clicked>
     </ViewProfile>
     <ViewProfile type="Footer">
       <Frame>
