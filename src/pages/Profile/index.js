@@ -1,7 +1,11 @@
 import React from 'react';
 
 import {StatusBar} from 'react-native';
-import {SettingIcon} from '~/components/icons/profileIcons';
+import {
+  EditIcon,
+  SettingIcon,
+  ShareIcon,
+} from '~/components/icons/profileIcons';
 
 import {
   PanelBackground,
@@ -25,13 +29,10 @@ const Main = ({navigation}) => (
     </ViewProfile>
     <ViewProfile type="Icons">
       <Clicked onPress={() => navigation.navigate('EditProfile')}>
-        <SettingIcon />
+        <EditIcon localization="first" />
       </Clicked>
       <Clicked onPress={() => navigation.navigate('EditProfile')}>
-        <SettingIcon />
-      </Clicked>
-      <Clicked onPress={() => navigation.navigate('EditProfile')}>
-        <SettingIcon />
+        <SettingIcon localization="second" />
       </Clicked>
     </ViewProfile>
     <ViewProfile type="Footer">

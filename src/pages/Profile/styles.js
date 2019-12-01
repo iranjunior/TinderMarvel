@@ -35,15 +35,17 @@ export const ViewProfile = Styled.View`
         css`
           height: 30%;
           overflow: hidden;
-          justify-content: center;
+          justify-content: space-between;
           align-items: flex-start;
           flex-direction: row;
-          border-bottom-right-radius: ${Math.floor(size.height / 2)};
-          border-bottom-left-radius: ${Math.floor(size.height / 2)};
-          transform: scaleX(2);
+          border-bottom-right-radius: ${Math.floor(size.height) / 2};
+          border-bottom-left-radius: ${Math.floor(size.height) / 2};
           border-color: #babaca;
           border-width: 1;
           border-top-width: 0;
+          transform: scaleX(1.5);
+          margin-top: -20;
+          background-color: 'rgb(255,255,255)';
         `}
     ${props =>
       props.type === 'Footer' &&

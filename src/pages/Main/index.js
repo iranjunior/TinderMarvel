@@ -1,38 +1,24 @@
-import React from 'react';
-import {
-  PanelBackground,
-  ImageProfile,
-  ViewMain,
-  Bottom,
-  Icon,
-  Title,
-  Description,
-  Clicked,
-} from './styles';
+import React, {useRef} from 'react';
+import Swiper from 'react-native-deck-swiper';
 
-const Main = ({navigation}) => (
-  <PanelBackground>
-    <ViewMain type="Image">
-      <Clicked onPress={() => navigation.navigate('Details')}>
-        <ImageProfile source={require('~/public/imagens/500.jpg')} />
-        <ViewMain type="Title">
-          <Title> Homem de Ferro</Title>
-          <Description>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry...
-          </Description>
-        </ViewMain>
-      </Clicked>
-    </ViewMain>
-    <ViewMain type="Footer">
-      <Bottom>
-        <Icon type="Unlike">✖</Icon>
-      </Bottom>
-      <Bottom>
-        <Icon type="Like">✔</Icon>
-      </Bottom>
-    </ViewMain>
-  </PanelBackground>
-);
+import {PanelBackground, ViewMain, Bottom, Icon, Title} from './styles';
+
+import Card from '~/components/cards';
+
+const Main = ({navigation}) => {
+  return (
+    <PanelBackground>
+      <Card navigation={navigation} />
+      <ViewMain type="Footer">
+        <Bottom>
+          <Icon type="Unlike">✖</Icon>
+        </Bottom>
+        <Bottom>
+          <Icon type="Like">✔</Icon>
+        </Bottom>
+      </ViewMain>
+    </PanelBackground>
+  );
+};
 
 export default Main;

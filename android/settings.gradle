@@ -1,4 +1,6 @@
 rootProject.name = 'TinderMarvel'
+include ':react-native-view-overflow'
+project(':react-native-view-overflow').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-view-overflow/android')
 include ':react-native-safe-area-context'
 project(':react-native-safe-area-context').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-safe-area-context/android')
 include ':react-native-screens'
