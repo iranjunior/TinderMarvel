@@ -2,9 +2,19 @@ import React from 'react';
 import {Animated} from 'react-native';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 
-import {PanelBackground, ViewMain, Bottom, Icon, Title} from './styles';
+import {
+  PanelBackground,
+  ViewMain,
+  Bottom,
+  Icon,
+  Title,
+  Card,
+  TextArea,
+  ImageProfile,
+  Description,
+} from './styles';
 
-import Card from '~/components/cards';
+// import Card from '~/components/cards';
 
 const Main = ({navigation}) => {
   const translateY = new Animated.Value(0);
@@ -23,19 +33,22 @@ const Main = ({navigation}) => {
     <PanelBackground>
       <PanGestureHandler onGestureEvent={animatedEvent}>
         <Card
-          navigation={navigation}
           style={{
             transform: [
               {
-                translateY: translateY.interpolate({
-                  inputRange: [-350, 0, 380],
-                  outputRange: [-50, 0, 380],
-                  extrapolate: 'clamp',
-                }),
+                translateY: translateY,
               },
             ],
-          }}
-        />
+          }}>
+          <ImageProfile source={require('~/public/imagens/500.jpg')} />
+          <TextArea type="Title">
+            <Title> Homem de Ferro</Title>
+            <Description>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry...
+            </Description>
+          </TextArea>
+        </Card>
       </PanGestureHandler>
       <ViewMain type="Footer">
         <Bottom>

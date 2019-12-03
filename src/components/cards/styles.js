@@ -19,6 +19,7 @@ background-color: 'rgb(255,255,255)';
 height: 88%;
 padding-right: 5;
 padding-left: 5;
+z-index: 5000;
 
 `;
 export const TextArea = Styled.View`

@@ -1,11 +1,43 @@
 import Styled, {css} from 'styled-components/native';
 
+import {Animated} from 'react-native';
+
 export const PanelBackground = Styled.View`
     display: flex;
     height: 100%;
     align-items: center;
     background-color: 'rgb(255,255,255)';
 
+`;
+
+export const Card = Styled(Animated.View)`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+background-color: 'rgb(255,255,255)';
+height: 88%;
+padding-right: 5;
+padding-left: 5;
+position: relative;
+z-index: 100;
+
+`;
+
+export const TextArea = Styled.View`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 95%;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding-left: 10;
+    padding-bottom: 20;
+    position: absolute;
+    z-index: 10;
 `;
 export const ViewMain = Styled.View`
     display: flex;
