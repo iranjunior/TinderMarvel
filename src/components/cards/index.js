@@ -1,19 +1,24 @@
 import React from 'react';
-import {ImageProfile, ViewMain, Title, Description, Clicked} from './styles';
+import {
+  ImageProfile,
+  Title,
+  Description,
+  Clicked,
+  TextArea,
+  Card,
+} from './styles';
 
-const Main = ({navigation}) => (
-  <ViewMain type="Image">
-    <Clicked onPress={() => navigation.navigate('Details')}>
-      <ImageProfile source={require('~/public/imagens/500.jpg')} />
-      <ViewMain type="Title">
-        <Title> Homem de Ferro</Title>
-        <Description>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry...
-        </Description>
-      </ViewMain>
-    </Clicked>
-  </ViewMain>
+const Main = ({navigation, style}) => (
+  <Card style={style}>
+    <ImageProfile source={require('~/public/imagens/500.jpg')} />
+    <TextArea type="Title">
+      <Title> Homem de Ferro</Title>
+      <Description>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry...
+      </Description>
+    </TextArea>
+  </Card>
 );
 
 export default Main;

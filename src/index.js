@@ -1,4 +1,5 @@
 import React from 'react';
+import 'prop-types';
 import 'react-native-gesture-handler';
 import '~/config/ReactotronConfig';
 
