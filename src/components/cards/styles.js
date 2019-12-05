@@ -10,7 +10,7 @@ export const PanelBackground = Styled.View`
 
 `;
 
-export const Card = Styled(Animated.View)`
+export const Container = Styled(Animated.View)`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -19,7 +19,6 @@ background-color: 'rgb(255,255,255)';
 height: 88%;
 padding-right: 5;
 padding-left: 5;
-z-index: 5000;
 
 `;
 export const TextArea = Styled.View`
@@ -27,15 +26,14 @@ export const TextArea = Styled.View`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 95%;
-    width: 100%;
     align-items: flex-start;
     justify-content: flex-end;
     background-color: transparent;
     padding-left: 10;
     padding-bottom: 20;
     position: absolute;
-    z-index: 10;
+    bottom: 0;
+    z-index: 100;
 `;
 export const ImageProfile = Styled.Image`
     height: 100%;
@@ -75,4 +73,6 @@ export const Clicked = Styled.TouchableOpacity`
     background-color: transparent;
     width: 100%;
     height: 100%;
+    position: relative;
+    z-index: 10;
 `;
