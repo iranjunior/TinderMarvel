@@ -1,11 +1,10 @@
 import Styled from 'styled-components/native';
 
-export const PanelBackground = Styled.View`
+export const Container = Styled.ScrollView`
     display: flex;
     flex: 1;
     height: 100%;
-    align-items: center;
-    background-color: 'rgb(55,55,55)';
+    background-color: 'rgb(255,255,255)';
 `;
 
 export const Title = Styled.Text`

@@ -50,9 +50,10 @@ const HomeScrean = createMaterialTopTabNavigator(
     Profile: ProfileStack,
     Main: MainStack,
     Messages: MessagesStack,
+    Message: MessageScreen,
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'Message',
     defaultNavigationOptions: ({navigation}) => ({
       tabBarIcon: ({focused}) => (
         <TabIcons navigation={navigation} focused={focused} />

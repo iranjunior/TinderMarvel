@@ -1,14 +1,10 @@
 import React from 'react';
-
-import {StatusBar} from 'react-native';
-
-import {PanelBackground, Title} from './styles';
-
+import {Container} from './styles';
+import CardMessage from '~/components/cardMessage';
 const Main = ({navigation}) => (
-  <PanelBackground>
-    <StatusBar />
-    <Title> Personagens </Title>
-  </PanelBackground>
+  <Container>
+    <CardMessage navigation={navigation} />
+  </Container>
 );
 
 export default Main;

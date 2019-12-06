@@ -18,7 +18,7 @@ export const Bottom = Styled.TouchableOpacity`
 export const Icon = Styled.Text`
     color: ${props => (props.type === 'Like' ? '#00cc00' : '#cc0000')};
     margin: auto;
-    font-size: 25;
+    font-size: 32;
 `;
 
 export const Clicked = Styled.TouchableOpacity`

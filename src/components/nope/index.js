@@ -7,7 +7,7 @@ export default function like({translateX}) {
     <Container
       style={{
         opacity: translateX.interpolate({
-          inputRange: [-200, 0],
+          inputRange: [-80, 0],
           outputRange: [1, 0],
         }),
       }}>
