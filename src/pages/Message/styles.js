@@ -6,7 +6,3 @@ export const Container = Styled.ScrollView`
     height: 100%;
     background-color: 'rgb(255,255,255)';
 `;
-
-export const Title = Styled.Text`
-    font-size: 30px;
-`;

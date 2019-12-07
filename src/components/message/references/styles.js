@@ -2,7 +2,7 @@ import Styled from 'styled-components/native';
 import {Link} from 'react-native';
 
 export const Container = Styled.View`
-  min-height: 300;
+  max-height: 300;
   width: 100%;
   padding-left: 10;
   padding-right: 10;
@@ -38,19 +38,25 @@ export const ReferencesList = Styled.View`
     /*
     background-color: black; */
   `;
-export const ReferenceSpace = Styled.View`
-  min-height: 30;
+export const ReferenceSpace = Styled.TouchableOpacity`
+  height: 30;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   margin-bottom: 20;
-  margin-left: 20;
-
+  margin-left: 10;
+  margin-right: 10;
+  background-color: #fff;
 `;
 
+export const ReferenceType = Styled.Text`
+font-size: 22;
+color: #222
+`;
 export const Reference = Styled.Text`
-width: 100%;
-color: #222`;
+font-size: 20;
+color: blue;
+`;

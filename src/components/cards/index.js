@@ -32,6 +32,22 @@ const Card = ({navigation}) => {
     ],
     {useNativeDriver: true},
   );
+
+  const like = () => {
+    Animated.timing(translateX, {
+      toValue: 500,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const nope = () => {
+    Animated.timing(translateX, {
+      toValue: -500,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
   const HandlerStateChange = event => {
     if (event.nativeEvent.oldState === State.ACTIVE) {
       const {translationX} = event.nativeEvent;
@@ -42,7 +58,18 @@ const Card = ({navigation}) => {
           duration: 350,
           useNativeDriver: true,
         }).start();
+      } else if (translationX > 200) {
+        Animated.timing(translateX, {
+          toValue: 500,
+          duration: 250,
+          useNativeDriver: true,
+        }).start();
       } else {
+        Animated.timing(translateX, {
+          toValue: -500,
+          duration: 250,
+          useNativeDriver: true,
+        }).start();
       }
     }
   };
