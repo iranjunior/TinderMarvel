@@ -2,9 +2,9 @@ import Styled from 'styled-components/native';
 import {Animated, Dimensions} from 'react-native';
 import {WebView} from 'react-native-webview';
 
-export const Container = Styled(Animated.View)`
+export const Container = Styled.Modal`
 height: 100%;
-width: 0;
+width: 100%;
 display: flex;
 flex-direction: column;
 flex-wrap: nowrap;
@@ -12,7 +12,7 @@ align-items: flex-start;
 justify-content: flex-start;
 position: absolute;
 top: 0;
-z-index: 10000;
+z-index: 1000;
 `;
 export const WebHeader = Styled(Animated.View)`
 height: 40;
@@ -22,6 +22,9 @@ flex-direction: row;
 align-items: flex-start;
 justify-content: flex-start;
 background-color: #fff;
+position: absolute;
+top: 0;
+z-index:10000;
 `;
 export const BackButton = Styled.TouchableOpacity`
 height: 40;
@@ -35,7 +38,7 @@ export const WebContainerTitle = Styled(Animated.View)`
 height: 40;
 width: 90%;
 display: flex;
-align-items: flex-start;
+align-items: center;
 justify-content: center;
 `;
 

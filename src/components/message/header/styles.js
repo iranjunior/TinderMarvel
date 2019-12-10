@@ -46,4 +46,5 @@ margin-top: 10;
 export const Image = Styled.Image`
 height: 100%;
 width: 100%;
+border-radius: 5;
 `;

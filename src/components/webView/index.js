@@ -1,6 +1,8 @@
-import React from 'react';
-import {Animated, Dimensions} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
+import Lottie from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {REFERENCE_LINK} from '~/constants/actions';
 
 import {
   Container,
@@ -12,37 +14,56 @@ import {
   Web,
 } from './styles';
 
-export default function Main({navigation}) {
-  const width = new Animated.Value(0);
-  const widthMax = Dimensions.get('screen').width;
-  const start = () => {
-    Animated.timing(width, {
-      toValue: widthMax,
-      duration: 2000,
-    }).start();
-  };
+const WebView = ({reference, dispatch}) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   const hide = () => {
-    Animated.timing(width, {
-      toValue: 0,
-      duration: 1000,
-    }).start();
+    setModalVisible(false);
+    dispatch({
+      type: REFERENCE_LINK,
+      payload: undefined,
+    });
   };
+  const choose = references => {
+    if (references) {
+      setModalVisible(true);
+    } else {
+      setModalVisible(false);
+    }
+  };
+  useEffect(() => {
+    choose(reference);
+  });
   return (
-    <Container
-      style={{
-        width: width,
-      }}>
+    <Container animationType="slide" transparent={false} visible={modalVisible}>
       <WebHeader>
         <BackButton onPress={hide}>
           <Icon name="back" size={28} color="#000" />
         </BackButton>
         <WebContainerTitle>
-          <WebTitle>Wiki</WebTitle>
+          <WebTitle>{reference && reference.type}</WebTitle>
         </WebContainerTitle>
       </WebHeader>
       <WebSpacing>
-        <Web source={{uri: 'https://github.com/facebook/react-native'}} />
+        <Web
+          source={{uri: reference && reference.uri}}
+          startInLoadingState={true}
+          renderLoading={() => (
+            <Lottie
+              source={require('~/public/aminations/loadding.json')}
+              autoPlay
+              loop
+            />
+          )}
+        />
       </WebSpacing>
     </Container>
   );
-}
+};
+
+const mapStateToProps = state => ({
+  ...state,
+  reference: state.reference,
+});
+
+export default connect(mapStateToProps)(WebView);
