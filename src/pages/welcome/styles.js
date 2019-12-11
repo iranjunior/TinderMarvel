@@ -1,11 +1,16 @@
 import styled from 'styled-components/native';
 
+import LottieView from 'lottie-react-native';
+
 export const Container = styled.View`
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+`;
+export const Lottie = styled(LottieView)`
+  margin-bottom: 60;
 `;
 export const LoginButton = styled.TouchableOpacity`
   height: 45;
@@ -28,6 +33,7 @@ export const RegisterButton = styled.TouchableOpacity`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40;
 `;
 export const LoginText = styled.Text`
   color: white;

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Container,
+  Lottie,
   LoginButton,
   LoginText,
   RegisterButton,
@@ -11,6 +12,11 @@ import {
 export default function welcome({navigation}) {
   return (
     <Container>
+      <Lottie
+        source={require('~/public/aminations/welcome.json')}
+        autoPlay
+        loop
+      />
       <LoginButton onPress={() => navigation.navigate('Login')}>
         <LoginText>Login</LoginText>
       </LoginButton>
