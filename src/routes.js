@@ -10,6 +10,10 @@ import MessageScreen from '~/pages/Message';
 import ProfileScreen from '~/pages/Profile';
 import EditProfileScreen from '~/pages/EditProfile';
 
+import WellcomeScreen from '~/pages/welcome';
+import LoginScreen from '~/pages/login';
+import RegisterScreen from '~/pages/register';
+
 import TabIcons from '~/components/icons/tabIcons';
 
 const tabBarOptions = {
@@ -44,7 +48,16 @@ const MessagesStack = createStackNavigator(
   },
   {headerMode: 'none'},
 );
-
+const WellcomeStack = createStackNavigator(
+  {
+    Wellcome: WellcomeScreen,
+    Login: LoginScreen,
+    Register: RegisterScreen,
+  },
+  {
+    headerMode: 'none',
+  },
+);
 const HomeScrean = createMaterialTopTabNavigator(
   {
     Profile: ProfileStack,
@@ -62,4 +75,4 @@ const HomeScrean = createMaterialTopTabNavigator(
   },
 );
 
-export default createAppContainer(HomeScrean);
+export default createAppContainer(WellcomeStack);
