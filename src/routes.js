@@ -10,7 +10,7 @@ import MessageScreen from '~/pages/Message';
 import ProfileScreen from '~/pages/Profile';
 import EditProfileScreen from '~/pages/EditProfile';
 
-import WellcomeScreen from '~/pages/welcome';
+import WelcomeScreen from '~/pages/welcome';
 import LoginScreen from '~/pages/login';
 import RegisterScreen from '~/pages/register';
 
@@ -48,9 +48,9 @@ const MessagesStack = createStackNavigator(
   },
   {headerMode: 'none'},
 );
-const WellcomeStack = createStackNavigator(
+const WelcomeStack = createStackNavigator(
   {
-    Wellcome: WellcomeScreen,
+    Welcome: WelcomeScreen,
     Login: LoginScreen,
     Register: RegisterScreen,
   },
@@ -75,4 +75,4 @@ const HomeScrean = createMaterialTopTabNavigator(
   },
 );
 
-export default createAppContainer(WellcomeStack);
+export default createAppContainer(WelcomeStack);

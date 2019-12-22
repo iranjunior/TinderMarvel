@@ -1,5 +1,4 @@
-import React from 'react';
-import {Animated} from 'react-native';
+import React, {useState} from 'react';
 import {
   Container,
   BackButton,
@@ -8,61 +7,80 @@ import {
   Form,
   Field,
   Label,
-  LabelPassword,
+  PasswordField,
+  Icon,
   InputText,
+  LoginButton,
+  LoginText,
 } from './styles';
 import BackIcons from '~/components/icons/backincons';
 
-export default function login({navigation}) {
-  const labelLogin = new Animated.Value(38);
-  const labelPassword = new Animated.Value(38);
-  const leaveLogin = () => {
-    Animated.timing(labelLogin, {
-      toValue: 0,
-      duration: 300,
-    }).start();
-  };
-  const leavePassword = () => {
-    Animated.timing(labelPassword, {
-      toValue: 0,
-      duration: 300,
-    }).start();
-  };
+export default function Login({navigation}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [hide, setHide] = useState(true);
+
   return (
     <Container>
       <Header>
-        <BackButton onPress={() => navigation.navigate('Wellcome')}>
+        <BackButton onPress={() => navigation.navigate('Welcome')}>
           <BackIcons />
         </BackButton>
         <Title>Login</Title>
       </Header>
       <Form>
         <Field>
-          <Label
-            style={{
-              transform: [
-                {
-                  translateY: labelLogin,
-                },
-              ],
-            }}>
-            login
-          </Label>
-          <InputText onFocus={leaveLogin} />
+          <Label>Login</Label>
+          <InputText
+            defaultValue={email}
+            autoCompleteType="email"
+            autoCorrect={false}
+            textContentType="emailAddress"
+            onChangeText={e => setEmail(e)}
+          />
         </Field>
         <Field>
-          <LabelPassword
-            style={{
-              transform: [
-                {
-                  translateY: labelPassword,
-                },
-              ],
-            }}>
-            Senha
-          </LabelPassword>
-          <InputText onFocus={leavePassword} />
+          <Label>Senha</Label>
+          {hide ? (
+            <PasswordField>
+              <InputText
+                defaultValue={password}
+                secureTextEntry={true}
+                onChangeText={input => setPassword(input)}
+                textContentType="password"
+                maxLength={30}
+              />
+              <Icon
+                name="ios-eye"
+                size={22}
+                color="#ccc"
+                onPress={() => setHide(false)}
+              />
+            </PasswordField>
+          ) : (
+            <PasswordField>
+              <InputText
+                defaultValue={password}
+                onChangeText={input => setPassword(input)}
+                maxLength={30}
+              />
+              <Icon
+                name="ios-eye-off"
+                size={22}
+                color="#ccc"
+                onPress={() => setHide(true)}
+              />
+            </PasswordField>
+          )}
         </Field>
+        <Field type="forgetPassword">
+          <Label onPress={() => navigation.navigate('Welcome')} type="link">
+            Esqueceu sua senha?
+          </Label>
+        </Field>
+        <LoginButton onPress={() => navigation.navigate('Login')}>
+          <LoginText>Login</LoginText>
+        </LoginButton>
       </Form>
     </Container>
   );
