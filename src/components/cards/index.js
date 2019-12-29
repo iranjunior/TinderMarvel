@@ -129,6 +129,6 @@ const Card = ({navigation, character}) => {
 };
 const mapStateToProps = state => ({
   ...state,
-  character: state.character,
+  character: state.cards.character,
 });
 export default connect(mapStateToProps)(Card);

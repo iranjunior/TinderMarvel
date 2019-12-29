@@ -48,6 +48,6 @@ export const RegisterText = styled.Text`
 export const Footer = styled.Text`
   position: absolute;
   font-size: 12;
-  color: #babaca;
+  color: #cacaca;
   bottom: 0;
 `;

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {connect} from 'react-redux';
-import {REFERENCE_LINK} from '~/constants/actions';
+import {DETAILS} from '~/constants/actions';
 import {
   Container,
   Title,
@@ -15,7 +15,7 @@ const References = ({dispatch}) => {
   const inputRef = useRef({});
 
   const handleWebPage = () => ({
-    type: REFERENCE_LINK,
+    type: DETAILS.REFERENCE_LINK,
     payload: {
       type: inputRef.current.props.children[0].props.children
         .trim()

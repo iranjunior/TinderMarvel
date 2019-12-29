@@ -10,9 +10,9 @@ import MessageScreen from '~/pages/Message';
 import ProfileScreen from '~/pages/Profile';
 import EditProfileScreen from '~/pages/EditProfile';
 
-import WelcomeScreen from '~/pages/welcome';
-import LoginScreen from '~/pages/login';
-import RegisterScreen from '~/pages/register';
+import WelcomeScreen from '~/pages/Welcome';
+import LoginScreen from '~/pages/Login';
+import RegisterScreen from '~/pages/Register';
 
 import TabIcons from '~/components/icons/tabIcons';
 

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import Lottie from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {REFERENCE_LINK} from '~/constants/actions';
+import {DETAILS} from '~/constants/actions';
 
 import {
   Container,
@@ -20,7 +20,7 @@ const WebView = ({reference, dispatch}) => {
   const hide = () => {
     setModalVisible(false);
     dispatch({
-      type: REFERENCE_LINK,
+      type: DETAILS.REFERENCE_LINK,
       payload: undefined,
     });
   };
@@ -63,7 +63,7 @@ const WebView = ({reference, dispatch}) => {
 
 const mapStateToProps = state => ({
   ...state,
-  reference: state.reference,
+  reference: state.details.reference,
 });
 
 export default connect(mapStateToProps)(WebView);

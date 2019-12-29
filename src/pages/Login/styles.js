@@ -63,7 +63,7 @@ export const Field = styled.View`
 export const Label = styled.Text`
   font-size: 18;
   font-weight: bold;
-  color: gray;
+  color: #babaca;
   margin-left: 10;
   background-color: #fff;
   position: relative;
