@@ -50,7 +50,7 @@ const WebView = ({reference, dispatch}) => {
           startInLoadingState={true}
           renderLoading={() => (
             <Lottie
-              source={require('~/public/aminations/loadding.json')}
+              source={require('~/public/aminations/loading.json')}
               autoPlay
               loop
             />

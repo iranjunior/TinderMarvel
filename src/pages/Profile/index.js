@@ -1,11 +1,7 @@
 import React from 'react';
 
 import {StatusBar} from 'react-native';
-import {
-  EditIcon,
-  SettingIcon,
-  ShareIcon,
-} from '~/components/icons/profileIcons';
+import {EditIcon, SettingIcon} from '~/components/icons/profileIcons';
 
 import {
   PanelBackground,

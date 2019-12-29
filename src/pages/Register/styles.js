@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components/native';
+import styled from 'styled-components/native';
 import IconIphone from 'react-native-vector-icons/Ionicons';
 
 export const StatusBar = styled.StatusBar``;

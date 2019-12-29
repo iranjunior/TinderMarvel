@@ -1,5 +1,6 @@
-import styled, {css} from 'styled-components/native';
+import styled from 'styled-components/native';
 import IconIphone from 'react-native-vector-icons/Ionicons';
+import LottieView from 'lottie-react-native';
 
 export const StatusBar = styled.StatusBar``;
 
@@ -36,74 +37,40 @@ export const Title = styled.Text`
   margin-left: 30;
   font-family: 'Roboto';
 `;
+export const FormContainer = styled.View`
+  height: 93%;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+`;
 export const Form = styled.View`
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  elevation: 3;
-`;
-
-export const Field = styled.View`
-  display: flex;
-  width: 90%;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 20;
-  ${props =>
-    props.type === 'forgetPassword' &&
-    css`
-      align-items: flex-end;
-      justify-content: flex-start;
-      margin-bottom: 0;
-      margin-top: -20;
-    `}
-`;
-export const Label = styled.Text`
-  font-size: 18;
-  font-weight: bold;
-  color: #babaca;
-  margin-left: 10;
-  background-color: #fff;
-  position: relative;
-  z-index: 1000;
-  transform: translateY(10px);
-  padding-left: 10;
-  padding-right: 10;
-  font-family: 'Roboto';
-  ${props =>
-    props.type === 'link' &&
-    css`
-      font-size: 14;
-      color: #0000cc;
-      font-weight: 200;
-      letter-spacing: 1;
-    `}
-`;
-
-export const InputText = styled.TextInput`
-    height: 50;
-    width: 100%;
-    border-width: 2px
-    border-color: #babaca;
-    padding-left: 15;
-    border-radius: 10;
-    font-family: 'Roboto';
-    font-weight: 100;
-    font-size: 18;
-    ${props =>
-      props.textContentType !== 'emailAddress' &&
-      css`
-        padding-right: 30;
-      `}
-`;
-export const PasswordField = styled.View`
-  display: flex;
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  flex-grow: 1;
+  flex: 1;
+  align-content: center;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
 `;
+export const Footer = styled.View`
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20;
+  position: absolute;
+  bottom: 0;
+`;
+
 export const LoginButton = styled.TouchableOpacity`
   height: 45;
   width: 80%;
@@ -121,6 +88,9 @@ export const LoginText = styled.Text`
   font-size: 22;
   font-weight: bold;
   font-family: 'Roboto';
+`;
+export const Lottie = styled(LottieView)`
+  height: 100%;
 `;
 export const Icon = styled(IconIphone)`
   position: absolute;

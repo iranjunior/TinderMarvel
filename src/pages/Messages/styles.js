@@ -1,7 +1,5 @@
 import Styled from 'styled-components/native';
 
-import {FlatList, StyleSheet} from 'react-native';
-
 export const Container = Styled.ScrollView`
 height: 100%;
 width: 100%;

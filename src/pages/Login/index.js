@@ -1,26 +1,29 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import {
   Container,
   BackButton,
   Header,
   Title,
+  FormContainer,
   Form,
-  Field,
-  Label,
-  PasswordField,
-  Icon,
-  InputText,
+  Footer,
   LoginButton,
+  Lottie,
   LoginText,
 } from './styles';
-
+import Login from '~/components/form/login';
+import Password from '~/components/form/loginPassword';
 import BackIcons from '~/components/icons/backincons';
 
-export default function Login({navigation}) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [hide, setHide] = useState(true);
-
+function LoginPage({login, pass, navigation}) {
+  const [authenticated, setAuthenticated] = useState(false);
+  const Authenticate = () => {
+    setAuthenticated(true);
+    setTimeout(() => {
+      navigation.navigate('Welcome');
+    }, 1500);
+  };
   return (
     <Container>
       <Header>
@@ -29,60 +32,33 @@ export default function Login({navigation}) {
         </BackButton>
         <Title>Login</Title>
       </Header>
-      <Form>
-        <Field>
-          <Label>Login</Label>
-          <InputText
-            defaultValue={email}
-            autoCompleteType="email"
-            autoCorrect={false}
-            textContentType="emailAddress"
-            onChangeText={e => setEmail(e)}
-          />
-        </Field>
-        <Field>
-          <Label>Senha</Label>
-          {hide ? (
-            <PasswordField>
-              <InputText
-                defaultValue={password}
-                secureTextEntry={true}
-                onChangeText={input => setPassword(input)}
-                textContentType="password"
-                maxLength={30}
-              />
-              <Icon
-                name="ios-eye"
-                size={22}
-                color="#ccc"
-                onPress={() => setHide(false)}
-              />
-            </PasswordField>
-          ) : (
-            <PasswordField>
-              <InputText
-                defaultValue={password}
-                onChangeText={input => setPassword(input)}
-                maxLength={30}
-              />
-              <Icon
-                name="ios-eye-off"
-                size={22}
-                color="#ccc"
-                onPress={() => setHide(true)}
-              />
-            </PasswordField>
-          )}
-        </Field>
-        <Field type="forgetPassword">
-          <Label onPress={() => navigation.navigate('Welcome')} type="link">
-            Esqueceu sua senha?
-          </Label>
-        </Field>
-        <LoginButton onPress={() => navigation.navigate('Login')}>
-          <LoginText>Login</LoginText>
-        </LoginButton>
-      </Form>
+      <FormContainer>
+        <Form>
+          <Login />
+          <Password />
+          <Footer>
+            <LoginButton
+              disabled={login.length === 0 && pass.length === 0}
+              onPress={Authenticate}>
+              {!authenticated ? (
+                <LoginText>Login</LoginText>
+              ) : (
+                <Lottie
+                  source={require('~/public/aminations/loadingWhite.json')}
+                  autoPlay
+                  loop
+                />
+              )}
+            </LoginButton>
+          </Footer>
+        </Form>
+      </FormContainer>
     </Container>
   );
 }
+const mapStateToProps = state => ({
+  ...state,
+  login: state.forms.email,
+  pass: state.forms.password,
+});
+export default connect(mapStateToProps)(LoginPage);

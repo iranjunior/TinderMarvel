@@ -1,4 +1,4 @@
-import Styled, {css} from 'styled-components/native';
+import Styled from 'styled-components/native';
 
 import {Animated} from 'react-native';
 

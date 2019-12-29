@@ -1,5 +1,5 @@
 import Styled from 'styled-components/native';
-import {Animated, Dimensions} from 'react-native';
+import {Animated} from 'react-native';
 import {WebView} from 'react-native-webview';
 
 export const Container = Styled.Modal`

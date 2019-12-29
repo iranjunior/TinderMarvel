@@ -5,6 +5,7 @@ const initialState = {
   email: '',
   login: '',
   password: '',
+  loginPassword: '',
   city: '',
   suggestionsCities: [],
   state: '',
@@ -59,6 +60,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         password: action.payload,
+      };
+    case FORM.CHANGE_LOGIN_PASSWORD:
+      return {
+        ...state,
+        loginPassword: action.payload,
       };
     case FORM.CHANGE_SECURE:
       return {

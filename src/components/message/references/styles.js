@@ -1,5 +1,4 @@
 import Styled from 'styled-components/native';
-import {Link} from 'react-native';
 
 export const Container = Styled.View`
   max-height: 300;

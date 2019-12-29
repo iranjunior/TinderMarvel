@@ -22,6 +22,7 @@ export const Field = styled.View`
   justify-content: flex-start;
   margin: auto;
   margin-bottom: 0;
+  margin-top: 0;
 `;
 export const Label = styled(Animated.Text)`
   font-size: 18;
