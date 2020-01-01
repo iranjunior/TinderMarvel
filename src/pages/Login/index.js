@@ -12,17 +12,20 @@ import {
   Lottie,
   LoginText,
 } from './styles';
+import ClientBackend from '~/services/apis/backend';
+
 import Login from '~/components/form/login';
 import Password from '~/components/form/loginPassword';
 import BackIcons from '~/components/icons/backincons';
 
 function LoginPage({login, pass, navigation}) {
   const [authenticated, setAuthenticated] = useState(false);
-  const Authenticate = () => {
+  const Authenticate = async () => {
     setAuthenticated(true);
-    setTimeout(() => {
-      navigation.navigate('Welcome');
-    }, 1500);
+    const user = ClientBackend.post('/v1/signin', {
+      email: login,
+      password: pass,
+    });
   };
   return (
     <Container>
