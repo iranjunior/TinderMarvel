@@ -13,19 +13,39 @@ import {
   LoginText,
 } from './styles';
 import ClientBackend from '~/services/apis/backend';
-
+import User from '~/services/asyncStorage';
+import {SESSION} from '~/constants/actions';
 import Login from '~/components/form/login';
 import Password from '~/components/form/loginPassword';
 import BackIcons from '~/components/icons/backincons';
 
-function LoginPage({login, pass, navigation}) {
+function LoginPage({login, pass, navigation, dispatch}) {
   const [authenticated, setAuthenticated] = useState(false);
+  let user = {
+    data: {},
+  };
+  const handleId = value => ({
+    type: SESSION.CHANGE_ID,
+    payload: value,
+  });
+  const handleToken = value => ({
+    type: SESSION.CHANGE_TOKEN,
+    payload: value,
+  });
   const Authenticate = async () => {
-    setAuthenticated(true);
-    const user = ClientBackend.post('/v1/signin', {
+    ClientBackend.post('/v1/signin', {
       email: login,
       password: pass,
-    });
+    })
+      .then(res => {
+        user = res.data;
+        User.set('user', user);
+        dispatch(handleId(user.id));
+        dispatch(handleToken(user.token));
+        navigation.navigate('AppStack');
+      })
+      .catch(err => {});
+    setAuthenticated(true);
   };
   return (
     <Container>
@@ -62,6 +82,6 @@ function LoginPage({login, pass, navigation}) {
 const mapStateToProps = state => ({
   ...state,
   login: state.forms.email,
-  pass: state.forms.password,
+  pass: state.forms.loginPassword,
 });
 export default connect(mapStateToProps)(LoginPage);

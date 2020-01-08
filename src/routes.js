@@ -1,78 +1,16 @@
-import React from 'react';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
+import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 
-import MainScreen from '~/pages/Main';
-import DetailsScreen from '~/pages/Details';
-import MessagesScreen from '~/pages/Messages';
-import MessageScreen from '~/pages/Message';
-import ProfileScreen from '~/pages/Profile';
-import EditProfileScreen from '~/pages/EditProfile';
+import App from '~/navigation/app';
+import Welcome from '~/navigation/welcome';
+import LoadingScreen from '~/pages/Loading';
 
-import WelcomeScreen from '~/pages/Welcome';
-import LoginScreen from '~/pages/Login';
-import RegisterScreen from '~/pages/Register';
-
-import TabIcons from '~/components/icons/tabIcons';
-
-const tabBarOptions = {
-  showIcon: true,
-  showLabel: false,
-  style: {
-    backgroundColor: 'rgb(255,255,255)',
-    elevation: 0,
-  },
-  indicatorStyle: {
-    width: 0,
-  },
-};
-const MainStack = createStackNavigator(
+export default createAppContainer(
+  createSwitchNavigator({
+    Loading: LoadingScreen,
+    WelcomeStack: Welcome,
+    AppStack: App,
+  }),
   {
-    Main: MainScreen,
-    Details: DetailsScreen,
-  },
-  {headerMode: 'none'},
-);
-const ProfileStack = createStackNavigator(
-  {
-    Profile: ProfileScreen,
-    EditProfile: EditProfileScreen,
-  },
-  {headerMode: 'none'},
-);
-const MessagesStack = createStackNavigator(
-  {
-    Messages: MessagesScreen,
-    Message: MessageScreen,
-  },
-  {headerMode: 'none'},
-);
-const WelcomeStack = createStackNavigator(
-  {
-    Welcome: WelcomeScreen,
-    Login: LoginScreen,
-    Register: RegisterScreen,
-  },
-  {
-    headerMode: 'none',
+    initialRouteName: 'Loading',
   },
 );
-const HomeScrean = createMaterialTopTabNavigator(
-  {
-    Profile: ProfileStack,
-    Main: MainStack,
-    Messages: MessagesStack,
-  },
-  {
-    initialRouteName: 'Main',
-    defaultNavigationOptions: ({navigation}) => ({
-      tabBarIcon: ({focused}) => (
-        <TabIcons navigation={navigation} focused={focused} />
-      ),
-    }),
-    tabBarOptions,
-  },
-);
-
-export default createAppContainer(WelcomeStack);

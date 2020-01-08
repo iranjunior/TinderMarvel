@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import AsyncStorage, {
   useAsyncStorage,
 } from '@react-native-community/async-storage';
@@ -17,13 +18,12 @@ const get = async key => {
 
     return JSON.parse(value);
   } catch (error) {
-    return undefined;
+    return '';
   }
 };
 const set = async (key, value) => {
   try {
     normalizeKey(key);
-
     await AsyncStorage.setItem(key, JSON.stringify(value));
   } catch (error) {}
 };
@@ -41,7 +41,7 @@ const merge = async (key, value) => {
 
     return JSON.parse(result);
   } catch (error) {
-    return undefined;
+    return '';
   }
 };
 const getAll = async () => {
@@ -51,7 +51,7 @@ const getAll = async () => {
 
     return result.map(data => JSON.parse(data));
   } catch (error) {
-    return undefined;
+    return '';
   }
 };
 const multiGet = async keys => {
