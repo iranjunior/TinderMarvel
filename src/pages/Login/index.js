@@ -67,7 +67,7 @@ function LoginPage({login, pass, navigation, dispatch}) {
                 <LoginText>Login</LoginText>
               ) : (
                 <Lottie
-                  source={require('~/public/aminations/loadingWhite.json')}
+                  source={require('~/public/animations/loadingWhite.json')}
                   autoPlay
                   loop
                 />

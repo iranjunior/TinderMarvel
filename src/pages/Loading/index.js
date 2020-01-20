@@ -10,12 +10,16 @@ export default function Loading({navigation}) {
   }, [preparing, navigation]);
 
   const getUser = useCallback(async (id, token) => {
-    const response = await Client.get(`/v1/user/${id}`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-    User.merge('user', response.data.user);
+    try {
+      const response = await Client.get(`/v1/user/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      await User.merge('user', response.data.user);
+    } catch (error) {
+      getUser(id, token);
+    }
   }, []);
 
   const getCharacters = useCallback(async token => {
@@ -41,13 +45,14 @@ export default function Loading({navigation}) {
       }
       navigation.navigate('AppStack');
     } catch (error) {
+      console.table(error);
       navigation.navigate('WelcomeStack');
     }
   }, [getCharacters, getUser, navigation]);
   return (
     <Container>
       <Lottie
-        source={require('~/public/aminations/welcome.json')}
+        source={require('~/public/animations/welcome.json')}
         autoPlay
         loop
       />

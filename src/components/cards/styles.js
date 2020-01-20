@@ -6,7 +6,7 @@ export const PanelBackground = Styled.View`
     display: flex;
     height: 100%;
     align-items: center;
-    background-color: 'rgb(255,255,255)';
+    background-color: transparent;
 
 `;
 
@@ -15,11 +15,15 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
-background-color: 'rgb(255,255,255)';
-height: 88%;
-padding-right: 5;
-padding-left: 5;
+background-color: transparent;
+height: 100%;
 
+position: absolute;
+border-top-left-radius: 20;
+border-top-right-radius: 20;
+border-top-end-radius: 20;
+border-top-start-radius: 20;
+overflow: hidden;
 `;
 export const TextArea = Styled.View`
     display: flex;
@@ -38,7 +42,6 @@ export const TextArea = Styled.View`
 export const ImageProfile = Styled.Image`
     height: 100%;
     width: 100%;
-    border-radius: 20;
 `;
 export const Bottom = Styled.View`
     height: 60;
@@ -54,13 +57,14 @@ export const Icon = Styled.Text`
     `;
 
 export const Title = Styled.Text`
-    font-size: 22;
+    font-size: 28;
     font-weight: bold;
     color: white;
     width: 100%;
     align-items: flex-start;
     justify-content: flex-end;
     margin-bottom: 20;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75)
     `;
 
 export const Description = Styled.Text`

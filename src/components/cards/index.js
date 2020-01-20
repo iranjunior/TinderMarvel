@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {Animated} from 'react-native';
 
@@ -15,10 +15,10 @@ import {
 
 import Like from '~/components/like';
 import Nope from '~/components/nope';
+import params from '~/utils/parmsMavel';
 
-const Card = ({navigation, character}) => {
+const Card = ({navigation, character, data, style}) => {
   const translateX = new Animated.Value(0);
-
   const rotate = translateX.interpolate({
     inputRange: [-300, 300],
     outputRange: ['20deg', '-20deg'],
@@ -87,12 +87,14 @@ const Card = ({navigation, character}) => {
   useEffect(() => {
     actionCard(character);
   });
+
   return (
     <PanGestureHandler
       onGestureEvent={animatedEvent}
       onHandlerStateChange={HandlerStateChange}>
       <Container
         style={[
+          {style},
           {
             opacity: translateX.interpolate({
               inputRange: [-300, 0, 300],
@@ -113,14 +115,15 @@ const Card = ({navigation, character}) => {
         ]}>
         <Like translateX={translateX} />
         <Nope translateX={translateX} />
-        <ImageProfile source={require('~/public/imagens/500.jpg')} />
+        <ImageProfile
+          source={{
+            uri: `${data.thumbnail.path}/portrait_incredible.jpg?${params()}`,
+          }}
+        />
         <TextArea type="Title">
           <Clicked onPress={() => navigation.navigate('Details')}>
-            <Title> Homem de Ferro</Title>
-            <Description>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry...
-            </Description>
+            <Title> {data.name}</Title>
+            <Description>{data.description}</Description>
           </Clicked>
         </TextArea>
       </Container>

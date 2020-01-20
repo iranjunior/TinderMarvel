@@ -13,7 +13,7 @@ export default function welcome({navigation}) {
   return (
     <Container>
       <Lottie
-        source={require('~/public/aminations/welcome.json')}
+        source={require('~/public/animations/welcome.json')}
         autoPlay
         loop
       />

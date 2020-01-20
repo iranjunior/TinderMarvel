@@ -1,4 +1,4 @@
 export default {
-  BASEURL: process.env.BACKEND_BASEURL,
-  TIMEOUT: process.env.BACKEND_TIMEOUT,
+  BASEURL: 'http://localhost:3333',
+  TIMEOUT: 100000,
 };
