@@ -1,12 +1,12 @@
 import React from 'react';
 import {Container, ImageSpacing, Image, Title} from './styles';
-
-export default function messageHeader() {
+import params from '~/utils/parmsMavel';
+export default function messageHeader({img, name}) {
   return (
     <Container>
       <ImageSpacing>
-        <Image source={require('~/public/imagens/500.jpg')} />
-        <Title> Homem de Ferro</Title>
+        <Image source={{uri: `${img}/portrait_incredible.jpg?${params()}`}} />
+        <Title> {name}</Title>
       </ImageSpacing>
     </Container>
   );

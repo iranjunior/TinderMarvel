@@ -1,15 +1,25 @@
 import Styled from 'styled-components/native';
-
-export const PanelBackground = Styled.View`
+import {Dimensions, Animated} from 'react-native';
+export const Container = Styled.View`
     display: flex;
     height: 100%;
     align-items: center;
     background-color: 'rgb(255,255,255)';
 `;
-
-export const Title = Styled.Text`
-    font-size: 30px;
+export const HeaderSpacing = Styled(Animated.View)`
+  height: 350;
+  width: 100%;
 `;
-export const Clicked = Styled.TouchableOpacity`
-    background-color: transparent;
+
+export const BackButton = Styled.TouchableOpacity`
+    background-color: #e60000;
+    height: 70;
+    width: 70;
+    border-radius: 35;
+    position: relative;
+    top: -35;
+    elevation: 3;
+    left: ${Dimensions.get('screen').width - 90};
+    align-items: center;
+    justify-content: center;
 `;

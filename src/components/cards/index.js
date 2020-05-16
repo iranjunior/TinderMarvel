@@ -12,13 +12,14 @@ import {
   TextArea,
   Container,
 } from './styles';
-
+import {CHARACTERS} from '~/constants/actions';
 import Like from '~/components/like';
 import Nope from '~/components/nope';
 import params from '~/utils/parmsMavel';
 
-const Card = ({navigation, character, data, style}) => {
+const Card = ({navigation, character, data, style, dispatch}) => {
   const translateX = new Animated.Value(0);
+  const height = new Animated.Value(800);
   const rotate = translateX.interpolate({
     inputRange: [-300, 300],
     outputRange: ['20deg', '-20deg'],
@@ -83,6 +84,18 @@ const Card = ({navigation, character, data, style}) => {
       nope();
     }
   };
+  const changePage = () => {
+    Animated.timing(height, {
+      toValue: 300,
+      duration: 1000,
+    }).start(() => {
+      dispatch({
+        type: CHARACTERS.CHANGE_CHARACTERS_CURRENT,
+        payload: data,
+      });
+      navigation.navigate('Details');
+    });
+  };
 
   useEffect(() => {
     actionCard(character);
@@ -116,12 +129,15 @@ const Card = ({navigation, character, data, style}) => {
         <Like translateX={translateX} />
         <Nope translateX={translateX} />
         <ImageProfile
+          style={{
+            height,
+          }}
           source={{
             uri: `${data.thumbnail.path}/portrait_incredible.jpg?${params()}`,
           }}
         />
         <TextArea type="Title">
-          <Clicked onPress={() => navigation.navigate('Details')}>
+          <Clicked onPress={changePage}>
             <Title> {data.name}</Title>
             <Description>{data.description}</Description>
           </Clicked>

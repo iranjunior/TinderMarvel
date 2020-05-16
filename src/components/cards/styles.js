@@ -39,7 +39,7 @@ export const TextArea = Styled.View`
     bottom: 0;
     z-index: 100;
 `;
-export const ImageProfile = Styled.Image`
+export const ImageProfile = Styled(Animated.Image)`
     height: 100%;
     width: 100%;
 `;

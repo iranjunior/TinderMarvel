@@ -15,6 +15,9 @@ const Main = ({navigation}) => {
   useEffect(() => {
     getData();
   }, []);
+  if (data.length === 0) {
+    return null;
+  }
   return (
     <Container>
       <CardContainer>

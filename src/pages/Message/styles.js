@@ -7,9 +7,6 @@ export const Container = Styled.ScrollView`
     background-color: 'rgb(255,255,255)';
 `;
 export const HeaderMessage = Styled.View`
-    height: 50;
+    height: 300;
     width: 100%;
-    display: flex;
-    background-color: 'rgb(255,255,255)';
-
 `;
